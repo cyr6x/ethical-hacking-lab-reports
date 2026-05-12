@@ -48,7 +48,7 @@ Step 5 → Gateway scan (external-facing)     nmap 10.0.2.2
 
 ### Step 1 — SSH Service Started + Basic Scan (`nmap 127.0.0.1`)
 
-<!-- Screenshot: screenshots/01-ssh-start-basic-scan.png -->
+![Basic Nmap Scan](screenshots/01-ssh-start-basic-scan.png)
 
 **Findings:**
 - SSH service was manually started: `sudo service ssh start`
@@ -63,7 +63,7 @@ With no services running, the attack surface is minimal. Once SSH was enabled, p
 
 ### Step 2 — Service Version Detection (`sudo nmap -sV 127.0.0.1`)
 
-<!-- Screenshot: screenshots/02-nmap-sV-service-version.png -->
+![Nmap -sV Service Scan](screenshots/02-nmap-sV-service-version.png)
 
 **Findings:**
 ```
@@ -81,7 +81,7 @@ Version disclosure reveals the exact software build. An attacker can cross-refer
 
 ### Step 3 — OS Detection (`sudo nmap -O 127.0.0.1`)
 
-<!-- Screenshot: screenshots/03-nmap-O-os-detection.png -->
+![Nmap -O OS Detection](screenshots/03-nmap-O-os-detection.png)
 
 **Findings:**
 ```
@@ -98,7 +98,7 @@ OS fingerprinting reveals the kernel version range. Attackers use this to select
 
 ### Step 4 — Aggressive Scan (`sudo nmap -A 127.0.0.1`)
 
-<!-- Screenshot: screenshots/04-nmap-A-aggressive.png -->
+![Nmap -A Aggressive Scan](screenshots/04-nmap-A-aggressive.png)
 
 **Findings:**
 ```
@@ -117,7 +117,7 @@ The `-A` flag combines `-sV`, `-O`, `--traceroute`, and script scanning. This is
 
 ### Step 5 — Gateway Scan (`nmap 10.0.2.2`)
 
-<!-- Screenshot: screenshots/05-nmap-gateway-10.0.2.2.png -->
+![Nmap Gateway Scan](screenshots/05-nmap-gateway-10.0.2.2.png)
 
 **Findings:**
 ```
