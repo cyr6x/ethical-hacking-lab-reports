@@ -44,9 +44,11 @@ Step 5 → Gateway scan (external-facing)     nmap 10.0.2.2
 
 ## 📸 Scan Results & Analysis
 
+> ⏳ **Screenshots in progress** — terminal captures for all 5 steps will be added to `screenshots/` shortly.
+
 ### Step 1 — SSH Service Started + Basic Scan (`nmap 127.0.0.1`)
 
-![Basic Nmap Scan](screenshots/01-ssh-start-basic-scan.png)
+<!-- Screenshot: screenshots/01-ssh-start-basic-scan.png -->
 
 **Findings:**
 - SSH service was manually started: `sudo service ssh start`
@@ -61,7 +63,7 @@ With no services running, the attack surface is minimal. Once SSH was enabled, p
 
 ### Step 2 — Service Version Detection (`sudo nmap -sV 127.0.0.1`)
 
-![Nmap -sV Service Scan](screenshots/02-nmap-sV-service-version.png)
+<!-- Screenshot: screenshots/02-nmap-sV-service-version.png -->
 
 **Findings:**
 ```
@@ -79,7 +81,7 @@ Version disclosure reveals the exact software build. An attacker can cross-refer
 
 ### Step 3 — OS Detection (`sudo nmap -O 127.0.0.1`)
 
-![Nmap -O OS Detection](screenshots/03-nmap-O-os-detection.png)
+<!-- Screenshot: screenshots/03-nmap-O-os-detection.png -->
 
 **Findings:**
 ```
@@ -96,7 +98,7 @@ OS fingerprinting reveals the kernel version range. Attackers use this to select
 
 ### Step 4 — Aggressive Scan (`sudo nmap -A 127.0.0.1`)
 
-![Nmap -A Aggressive Scan](screenshots/04-nmap-A-aggressive.png)
+<!-- Screenshot: screenshots/04-nmap-A-aggressive.png -->
 
 **Findings:**
 ```
@@ -115,7 +117,7 @@ The `-A` flag combines `-sV`, `-O`, `--traceroute`, and script scanning. This is
 
 ### Step 5 — Gateway Scan (`nmap 10.0.2.2`)
 
-![Nmap Gateway Scan](screenshots/05-nmap-gateway-10.0.2.2.png)
+<!-- Screenshot: screenshots/05-nmap-gateway-10.0.2.2.png -->
 
 **Findings:**
 ```
@@ -181,6 +183,16 @@ MAC Address: 52:54:00:12:35:00 (QEMU virtual NIC)
 - **NAT mode** exposes the host machine's services through the gateway IP (10.0.2.2)
 - **Service version disclosure** is a critical misconfiguration — always configure SSH banners to hide version info in production
 - **Nmap `-A` flag** is the go-to for comprehensive reconnaissance in CTFs and professional pen tests
+
+---
+
+## Status
+
+- [x] Lab environment configured on Kali
+- [x] All 5 scan steps completed
+- [x] Findings documented and interpreted
+- [x] Security+ SY0-701 alignment mapped
+- [ ] Screenshots captured and pushed
 
 ---
 
